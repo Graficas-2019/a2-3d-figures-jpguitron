@@ -19,7 +19,7 @@
 		        initGL(canvas);
 				initShader(gl);
 				var pyramid = createPyramid(gl, [-2, -1, -1], [0.1, 1.0, 0.2]);
-				var dodecahedron = createDodecahedron(gl, [0, 0, -1],  [-0.4, 1.0, 0.1]);
+				var dodecahedron = createDodecahedron(gl, [0, 0, -1],  [-0.4, 1.0, 0.1], [0,1,0]);
 				var octahedron = createOctahedron(gl, [2, 0, -1], [0, 1, 0]);
 				// TO DO: create and draw the figures
 				run(gl, [pyramid,dodecahedron,octahedron]); 

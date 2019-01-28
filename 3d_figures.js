@@ -136,7 +136,7 @@ function createPyramid(gl, translation, rotationAxis)
         [0.5, 1.0, 1.0, 1.0],
         [0.5, 1.0, 0.0, 1.0],
         [0.0, 1.0, 0.5, 1.0],
-        [0.5, 1.0, 0.5, 1.0]
+        [1.0, 1.0, 0.5, 1.0]
     ];
     var vertexColors = [];
     for (const color of faceColors) 
@@ -223,7 +223,7 @@ function drawFaces(rotationY,verts,m,offsetY)
     return verts;
 }
 
-function createDodecahedron(gl, translation, rotationAxis)
+function createDodecahedron(gl, translation, rotationAxis,rotationAxis2)
 {    
     var vertexBuffer;
     vertexBuffer = gl.createBuffer();
@@ -235,7 +235,7 @@ function createDodecahedron(gl, translation, rotationAxis)
     radius = 0.5;
     var triangles = 5;
     verts = [];
-    var offsetY = radius+m/2;
+    var offsetY = radius+m/1.9;
 
     var apothem = Math.sqrt(Math.pow(radius,2) - Math.pow(m,2));
     var initialY = -offsetY;
@@ -293,9 +293,9 @@ function createDodecahedron(gl, translation, rotationAxis)
         [1.0, 1.0, 1.0, 1.0],
         [0.5, 0.5, 0.0, 1.0],
         [0.5, 1.0, 1.0, 1.0],
-        [0.5, 1.0, 0.0, 1.0],
+        [1.0, 1.0, 0.0, 1.0],
         [0.0, 1.0, 0.5, 1.0],
-        [0.5, 1.0, 0.5, 1.0]
+        [1.0, 1.0, 0.5, 1.0]
 
         
     ];
@@ -335,6 +335,7 @@ function createDodecahedron(gl, translation, rotationAxis)
         var fract = deltat / duration;
         var angle = Math.PI * 2 * fract;
         mat4.rotate(this.modelViewMatrix, this.modelViewMatrix, angle, rotationAxis);
+        mat4.rotate(this.modelViewMatrix, this.modelViewMatrix, angle, rotationAxis2);
     };
     
     return dodecahedron;
